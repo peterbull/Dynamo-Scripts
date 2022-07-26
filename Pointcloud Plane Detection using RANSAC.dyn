@@ -1,0 +1,731 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Pointcloud Plane Detection using RANSAC",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Color": {
+        "Key": "DSCore.Color",
+        "Value": "DSCoreNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSOffice.Data.ImportCSV@string,bool",
+      "Id": "8406472297424f69889fdb0dd3a95c47",
+      "Inputs": [
+        {
+          "Id": "a2d82add45c945d48281d2aafd71ff17",
+          "Name": "filePath",
+          "Description": "The CSV file to be converted into a list.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "25ebaab1f9c642a8830cfa6ac25c9cc2",
+          "Name": "transpose",
+          "Description": "Whether the resulting list should be transposed.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7f15d3759e5f45e1981ec8a312e91a24",
+          "Name": "list",
+          "Description": "The list containing the items in the CSV file.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Imports data from a CSV (comma separated values) file, put the items into a list and transpose it if needed.\n\nData.ImportCSV (filePath: string, transpose: bool = false): var[]..[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.Filename, CoreNodeModels",
+      "HintPath": "C:\\Users\\ewano\\Downloads\\Test3.csv",
+      "InputValue": "C:\\Users\\ewano\\Downloads\\Test3.csv",
+      "NodeType": "ExtensionNode",
+      "Id": "b4ae2754db93431dba96a782a08dcec0",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "0df51f57dfa6481899c75c206e33dfce",
+          "Name": "",
+          "Description": "Filename",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows you to select a file on the system to get its filename"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "true;",
+      "Id": "36b28772dce045c4ab4eb20f658e9ffe",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "49ee07312c6541e393efb770aa5f5d76",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.TakeItems@var[]..[],int",
+      "Id": "bd89a1c0ed734ab283108ebf157927df",
+      "Inputs": [
+        {
+          "Id": "f9c9702d86ed424b8d3fb9ef51445815",
+          "Name": "list",
+          "Description": "List to take from.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": true,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d6b476bd6536475e85ba9bef7c2f181a",
+          "Name": "amount",
+          "Description": "Amount of items to take. If negative, items are taken from the end of the list.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a3dc64b870194d3faaee29f911258566",
+          "Name": "list",
+          "Description": "List of extracted items.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Fetches an amount of items from the start of the list.\n\nList.TakeItems (list: var[]..[], amount: int): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "3;",
+      "Id": "088432c0dc7a4c6f9e23bb3c0b283cf8",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "451bfd54d51840b6bedc554a7d7e0aac",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "\"\"\"\r\nImportant! This code will only work with Dynamo versions\r\nthat are able to run cPython3 and have the following additional \r\npython packages installed.\r\n\r\nPackages required:\r\nnumpy\r\n\r\n\"\"\"\r\n\r\nimport random\r\nimport numpy as np\r\nimport clr\r\n\r\nclr.AddReference('ProtoGeometry')\r\nfrom Autodesk.DesignScript.Geometry import *\r\n\r\n# Create numpy array from point xyz list\r\ndef XYZtoArray(x,y,z):\r\n    return np.array([x,y,z],dtype=float)\r\n    \r\n## Remove item at index\r\ndef rem(l, id_to_del):\r\n    somelist = [i for j, i in enumerate(l) if j not in id_to_del]\r\n    return somelist    \r\n\r\nclass RANSAC_3D_Planes:\r\n    \"\"\"\r\n    This implementation of Random sample consensus (RANSAC) is an iterative method to estimate planes from 3D pointcloud data.\r\n    \"\"\"\r\n\r\n    def __init__(self):\r\n        self.inliers = []\r\n        self.equation = []\r\n\r\n    def fit_plane(self, pts, thresh=0.05, minPoints=100, maxIter=1000):\r\n        \"\"\"\r\n        Find the best plane.\r\n        \r\n        Inputs:\r\n        pts = 3D point cloud as a `np.array (N,3)`.\r\n        thresh = Threshold distance from the plane which is considered inlier.\r\n        maxIter = Number of maximum iteration which RANSAC will loop over.\r\n         \"\"\"\r\n        n_points = pts.shape[0]\r\n        best_eq = []\r\n        best_inliers = []\r\n\r\n        for it in range(maxIter):\r\n\r\n            # Samples 3 random points\r\n            id_samples = random.sample(range(0, n_points), 3)\r\n            pt_samples = pts[id_samples]\r\n\r\n            # Find the plane equation described by those 3 points\r\n            # We find first 2 vectors that are part of this plane\r\n            # A = pt2 - pt1\r\n            # B = pt3 - pt1\r\n\r\n            vecA = pt_samples[1, :] - pt_samples[0, :]\r\n            vecB = pt_samples[2, :] - pt_samples[0, :]\r\n\r\n            # Compute the cross product of vecA and vecB to get vecC which is normal to the plane\r\n            vecC = np.cross(vecA, vecB)\r\n                        \r\n            # The plane equation will be vecC[0]*x + vecC[1]*y + vecC[0]*z = -k\r\n            # We have to use a point to find k\r\n            vecC = vecC / np.linalg.norm(vecC)\r\n            k = -np.sum(np.multiply(vecC, pt_samples[1, :]))\r\n            plane_eq = [vecC[0], vecC[1], vecC[2], k]\r\n\r\n            # Distance from a point to a plane\r\n            pt_id_inliers = [] \r\n            dist_pt = (\r\n                plane_eq[0] * pts[:, 0] + plane_eq[1] * pts[:, 1] + plane_eq[2] * pts[:, 2] + plane_eq[3]\r\n            ) / np.sqrt(plane_eq[0] ** 2 + plane_eq[1] ** 2 + plane_eq[2] ** 2)\r\n\r\n            # Select indexes where distance is biggers than the threshold\r\n            pt_id_inliers = np.where(np.abs(dist_pt) <= thresh)[0]\r\n            if len(pt_id_inliers) > len(best_inliers):\r\n                best_eq = plane_eq\r\n                best_inliers = pt_id_inliers\r\n            self.inliers = best_inliers\r\n            self.equation = best_eq\r\n\r\n        return self.inliers\r\n\r\n# Input points list in [[x,y,z],[x,y,z]] formated floats.\r\npoints = IN[0]\r\n\r\npoints_list = []\r\n\r\nresult = []\r\n\r\n# The number of planes to attempt to find\r\nmax_iter = IN[1]\r\n\r\n# Main Loop\r\nfor m in range(max_iter):\r\n   \r\n    points_list = []\r\n    \r\n    # Format input lists\r\n    for p in points:\r\n        points_list.append(XYZtoArray(p[0],p[1],p[2]))\r\n    pArray = np.array(points_list)\r\n    \r\n    pts_found = 0\r\n    # Find best planes\r\n    ransac = RANSAC_3D_Planes()\r\n    best_inliers = ransac.fit_plane(pArray, 0.01)\r\n    \r\n    plane_pts = []\r\n    \r\n    # Remove plane pts from point list\r\n    points_list.clear()\r\n    remaining_pts = rem(points,best_inliers)    \r\n    \r\n    # Create Points from array pts\r\n    for b in best_inliers:\r\n        item = points[b]\r\n        pts_found = + 1\r\n        pt = Point.ByCoordinates(item[0],item[1],item[2])\r\n        \r\n        plane_pts.append(pt)\r\n    \r\n    # Reset points list with plane_pts removed\r\n    points = remaining_pts\r\n    \r\n    # Add plane pts to output\r\n    result.append(plane_pts)\r\n    \r\nOUT = result",
+      "Engine": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "37eeafaf1cc7460aabf605521165a111",
+      "Inputs": [
+        {
+          "Id": "c68c7bb879544155a4e920cbaea29bb8",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "209f990350dc427ca0bdcf15bbc4ebc8",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2bc8f946711b4c1f9c68b9335ac5d2e2",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "//# The number of planes to attempt\n//to find within the point cloud\n8;",
+      "Id": "d58118d5d3194dfbb0b04396a07f5c5a",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "37f5678c3cc64a91aa93c37cba04bf01",
+          "Name": "",
+          "Description": "Value of expression at line 3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "//# Input points list in [[x,y,z],[x,y,z]] formated floats.\ninput_points_list;",
+      "Id": "ca3aa926a3434a2e85ac225e04f9b42e",
+      "Inputs": [
+        {
+          "Id": "44e9e7eb98c74dcdb8944c866c1a273d",
+          "Name": "input_points_list",
+          "Description": "input_points_list",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4d994657b21d47f28f6d6fe46093e6c7",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "//Points sorted into planes\nresult;",
+      "Id": "c1b881796de542e488da4f8e28faeb6a",
+      "Inputs": [
+        {
+          "Id": "2e01d33c91414720bf9b79ddc9fe1076",
+          "Name": "result",
+          "Description": "result",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "704a77cee1b34c3687a5c16080dd7818",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.ColorRange, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "c9110545a2f4455f8eafe78cc955f6d9",
+      "Inputs": [
+        {
+          "Id": "3713bb23493742eba85c263812b54446",
+          "Name": "colors",
+          "Description": "A list of colors to include in the range.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f92efd40e318466fa1c81d8ab4b06820",
+          "Name": "indices",
+          "Description": "A list of values between 0.0 and 1.0 which position the input colors along the range.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "968509ddafd74a6681168191637a54c1",
+          "Name": "value",
+          "Description": "A list of values between 0.0 and 1.0. These values are used to look up the color within the range.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "6f2f45d402394172b6b4ec8d8d1e0930",
+          "Name": "color",
+          "Description": "The selected colors.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Get a color given a color range."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "0..1..1/n;",
+      "Id": "0dbc10973544472ebcc9eecae4175e37",
+      "Inputs": [
+        {
+          "Id": "ce2c9ade736b4131831cef478a809f6f",
+          "Name": "n",
+          "Description": "n",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d7f178cc08544bfea1b3cca6091fe40e",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[Color.ByARGB(255,0,255,0),\nColor.ByARGB(255,0,0,255)];",
+      "Id": "e63e5f0e74be43bb9ca4d690b7502f44",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "911d7a20939b406d9795a6ca095080f5",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Modifiers.GeometryColor.ByGeometryColor@Autodesk.DesignScript.Geometry.Geometry,DSCore.Color",
+      "Id": "33475c94233b4baeb1e0a1f55b9f22f9",
+      "Inputs": [
+        {
+          "Id": "7eb928c3e6fc42b199238288b3bfe15c",
+          "Name": "geometry",
+          "Description": "The geometry to which you would like to apply color.\n\nGeometry",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4b2b322600b0491a80122591dc8b883e",
+          "Name": "color",
+          "Description": "The color.\n\nColor",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "df496bb9341c4f8aaff93f6f755275a5",
+          "Name": "GeometryColor",
+          "Description": "A Display object.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Display geometry using a color.\n\nGeometryColor.ByGeometryColor (geometry: Geometry, color: Color): GeometryColor"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "7f15d3759e5f45e1981ec8a312e91a24",
+      "End": "f9c9702d86ed424b8d3fb9ef51445815",
+      "Id": "dae18990da3b43ef83e2275559a8e5fb"
+    },
+    {
+      "Start": "0df51f57dfa6481899c75c206e33dfce",
+      "End": "a2d82add45c945d48281d2aafd71ff17",
+      "Id": "b07bbe1775ad4d5bb21445ef193abc0a"
+    },
+    {
+      "Start": "49ee07312c6541e393efb770aa5f5d76",
+      "End": "25ebaab1f9c642a8830cfa6ac25c9cc2",
+      "Id": "8a5d84ee5f0c44029a2872b4153042f7"
+    },
+    {
+      "Start": "a3dc64b870194d3faaee29f911258566",
+      "End": "44e9e7eb98c74dcdb8944c866c1a273d",
+      "Id": "c0ac8c425d6b464ba4ef8c4e26e82681"
+    },
+    {
+      "Start": "451bfd54d51840b6bedc554a7d7e0aac",
+      "End": "d6b476bd6536475e85ba9bef7c2f181a",
+      "Id": "b83e29906fa3431e9df56be9c93fbcd9"
+    },
+    {
+      "Start": "2bc8f946711b4c1f9c68b9335ac5d2e2",
+      "End": "2e01d33c91414720bf9b79ddc9fe1076",
+      "Id": "01517daa19384e7cae609310ac591dd8"
+    },
+    {
+      "Start": "37f5678c3cc64a91aa93c37cba04bf01",
+      "End": "209f990350dc427ca0bdcf15bbc4ebc8",
+      "Id": "4b722edb8e25423b8f70786b9616e242"
+    },
+    {
+      "Start": "37f5678c3cc64a91aa93c37cba04bf01",
+      "End": "ce2c9ade736b4131831cef478a809f6f",
+      "Id": "ceb5062dbfcd485fb77b2b2f7110e16a"
+    },
+    {
+      "Start": "4d994657b21d47f28f6d6fe46093e6c7",
+      "End": "c68c7bb879544155a4e920cbaea29bb8",
+      "Id": "02f2d5f083344b77a6d8dbda4120e5ab"
+    },
+    {
+      "Start": "704a77cee1b34c3687a5c16080dd7818",
+      "End": "7eb928c3e6fc42b199238288b3bfe15c",
+      "Id": "3f2991a2162e4ddeb03e26336ffa15d9"
+    },
+    {
+      "Start": "6f2f45d402394172b6b4ec8d8d1e0930",
+      "End": "4b2b322600b0491a80122591dc8b883e",
+      "Id": "ab6e79b17d51406fb751af1b3451df2c"
+    },
+    {
+      "Start": "d7f178cc08544bfea1b3cca6091fe40e",
+      "End": "968509ddafd74a6681168191637a54c1",
+      "Id": "f75f5860ff1c425782e64a2f8a38df38"
+    },
+    {
+      "Start": "911d7a20939b406d9795a6ca095080f5",
+      "End": "3713bb23493742eba85c263812b54446",
+      "Id": "de703ceae5ac46d08b76e12cb8f6d6c9"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 100.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.10.0.3455",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 124816.0078125,
+      "EyeY": -5.1260581016540527,
+      "EyeZ": -487274.84375,
+      "LookX": 8.453125,
+      "LookY": -6.0886588096618652,
+      "LookZ": -8.21875,
+      "UpX": 0.18477450311183929,
+      "UpY": 0.96592587232589722,
+      "UpZ": -0.18123398721218109
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Data.ImportCSV",
+        "Id": "8406472297424f69889fdb0dd3a95c47",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 547.26704484222421,
+        "Y": 532.34677658657506
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "File Path",
+        "Id": "b4ae2754db93431dba96a782a08dcec0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 243.94932713196079,
+        "Y": 496.08908950711145
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "36b28772dce045c4ab4eb20f658e9ffe",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 383.74786366292153,
+        "Y": 602.48837887396269
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.TakeItems",
+        "Id": "bd89a1c0ed734ab283108ebf157927df",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 795.11454432017047,
+        "Y": 553.99996382317192
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "088432c0dc7a4c6f9e23bb3c0b283cf8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 665.796189493825,
+        "Y": 688.86544437808584
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "Py - RANSAC",
+        "Id": "37eeafaf1cc7460aabf605521165a111",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1832.9658946576435,
+        "Y": 617.34356570029672
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "d58118d5d3194dfbb0b04396a07f5c5a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1383.998389677962,
+        "Y": 676.3980269840381
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "ca3aa926a3434a2e85ac225e04f9b42e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1085.7253880873714,
+        "Y": 561.46134484178094
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "Code Block",
+        "Id": "c1b881796de542e488da4f8e28faeb6a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2078.4790983634166,
+        "Y": 620.83890525295328
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Color Range",
+        "Id": "c9110545a2f4455f8eafe78cc955f6d9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2212.8540448312474,
+        "Y": 932.947707949031
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "0dbc10973544472ebcc9eecae4175e37",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2013.8113474485613,
+        "Y": 1002.0463840718913
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "e63e5f0e74be43bb9ca4d690b7502f44",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1870.0461333084868,
+        "Y": 897.67245620664164
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "GeometryColor.ByGeometryColor",
+        "Id": "33475c94233b4baeb1e0a1f55b9f22f9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2586.7747954237125,
+        "Y": 909.39072453650533
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "d48a599401454dadad218f41ee3f27bc",
+        "Title": "RANSAC 3D Plane Detection",
+        "Nodes": [
+          "37eeafaf1cc7460aabf605521165a111"
+        ],
+        "Left": 1822.9658946576435,
+        "Top": 477.34356570029672,
+        "Width": 164.11333333333334,
+        "Height": 270.0,
+        "FontSize": 36.0,
+        "InitialTop": 617.34356570029672,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 130.0,
+        "Background": "#FF48B9FF"
+      },
+      {
+        "Id": "76dfba821a3047c3af955a869b7c6b36",
+        "Title": "Inputs",
+        "Nodes": [
+          "d58118d5d3194dfbb0b04396a07f5c5a",
+          "ca3aa926a3434a2e85ac225e04f9b42e"
+        ],
+        "Left": 1075.7253880873714,
+        "Top": 508.46134484178094,
+        "Width": 669.0,
+        "Height": 287.93668214225715,
+        "FontSize": 36.0,
+        "InitialTop": 561.46134484178094,
+        "InitialHeight": 259.93668214225715,
+        "TextblockHeight": 43.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "60c10349ff0b49e38e09451653e3da1a",
+        "Title": "Plane Points",
+        "Nodes": [
+          "c1b881796de542e488da4f8e28faeb6a"
+        ],
+        "Left": 2068.4790983634166,
+        "Top": 567.83890525295328,
+        "Width": 341.0,
+        "Height": 155.0,
+        "FontSize": 36.0,
+        "InitialTop": 620.83890525295328,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FFFFAA45"
+      },
+      {
+        "Id": "e439c48f41c64c838887698b2f1b3d32",
+        "Title": "Reading a CSV file generated from CloudCompare for Pointcloud Point XYZs",
+        "Nodes": [
+          "8406472297424f69889fdb0dd3a95c47",
+          "b4ae2754db93431dba96a782a08dcec0",
+          "36b28772dce045c4ab4eb20f658e9ffe",
+          "bd89a1c0ed734ab283108ebf157927df",
+          "088432c0dc7a4c6f9e23bb3c0b283cf8"
+        ],
+        "Left": 233.94932713196079,
+        "Top": 400.08908950711145,
+        "Width": 755.16521718820968,
+        "Height": 381.77635487097439,
+        "FontSize": 36.0,
+        "InitialTop": 496.08908950711145,
+        "InitialHeight": 337.77635487097439,
+        "TextblockHeight": 86.0,
+        "Background": "#FF848484"
+      },
+      {
+        "Id": "a32a2306e48d459c9c875f35a56d143e",
+        "Title": "Visualize Plane Points with Color (Optional)",
+        "Nodes": [
+          "c9110545a2f4455f8eafe78cc955f6d9",
+          "0dbc10973544472ebcc9eecae4175e37",
+          "e63e5f0e74be43bb9ca4d690b7502f44",
+          "33475c94233b4baeb1e0a1f55b9f22f9"
+        ],
+        "Left": 1860.0461333084868,
+        "Top": 844.67245620664164,
+        "Width": 1006.7286621152257,
+        "Height": 250.37392786524958,
+        "FontSize": 36.0,
+        "InitialTop": 897.67245620664164,
+        "InitialHeight": 246.63219393556949,
+        "TextblockHeight": 43.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": -130.81313715709888,
+    "Y": 62.919484617755927,
+    "Zoom": 0.6887371759211427
+  }
+}

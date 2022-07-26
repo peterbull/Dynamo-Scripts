@@ -1,0 +1,229 @@
+{
+  "Uuid": "fc8dd35b-2368-4cbb-a6ee-6fb9fec1b7b5",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Detail_Lines_From_CAD_Link",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "CAD.DetailCurvesFromCADLayers@Revit.Elements.ImportInstance,Revit.Elements.Views.View,string[],string[]",
+      "Id": "92d68499258242f585f81a8f422233c5",
+      "Inputs": [
+        {
+          "Id": "9d7b51a934a14d5d8876abd51749f761",
+          "Name": "importInstance",
+          "Description": "Input the ImportInstance to convert to curves.\n\nImportInstance",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "74a7693d82e24b319cbeb8e65da688c7",
+          "Name": "view",
+          "Description": "Select the target View for the Detail Lines. The View should be related to the ImportInstance.\n\nView",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b85e9affb8964e209aa7bc35f5a7e3fa",
+          "Name": "layerNames",
+          "Description": "Input the layer names for conversion. Leave unconnected to convert all layers. Names are case-sensitive.\n\nstring[]\nDefault value : []",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "613366f2942845f9a43fe56e544c6b9a",
+          "Name": "lineStyleMap",
+          "Description": "Input the LineStyle names to map to each layer. Longest lacing is used by default.\n\nstring[]\nDefault value : []",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3df354b3f4fd42aa98cbe8d175026272",
+          "Name": "DetailCurve[][]",
+          "Description": "DetailCurve[][]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "372243c04d654f2fa6e0da10ebc395b5",
+          "Name": "layerKeys[]",
+          "Description": "string[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "ToLinkStatus curves from a CAD link or import to Revit Detail curves by layer name. Enter LineStyle names to map to each layer during conversion.\r\rThe node is optimized to convert curve types that typically fail when using Dynamo Element.Curves node or Revit Explode.\r\rVisit bimorph.com/bimorph-nodes for support.\n\nCAD.DetailCurvesFromCADLayers (importInstance: ImportInstance, view: View, layerNames: string[] = [], lineStyleMap: string[] = []): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementsSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "255b96e0-ef12-4216-9fde-505c4070a8fc-00223980"
+      ],
+      "Id": "c540462bd2bf4014912d1b1428615d64",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ca6860777acd4e59a48ab319887af3b2",
+          "Name": "Elements",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.Views, DSRevitNodesUI",
+      "SelectedIndex": 463,
+      "SelectedString": "TYP. PLANTER DETAIL",
+      "NodeType": "ExtensionNode",
+      "Id": "b3e6d95c926741788ed3eff0caf0ae87",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "481aba7e61a6439eaa524290c0f59175",
+          "Name": "Views",
+          "Description": "The selected Views",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All views available in the current document."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "ca6860777acd4e59a48ab319887af3b2",
+      "End": "9d7b51a934a14d5d8876abd51749f761",
+      "Id": "e3d78d7678a94df08860a46d0cb7f375",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "481aba7e61a6439eaa524290c0f59175",
+      "End": "74a7693d82e24b319cbeb8e65da688c7",
+      "Id": "26bf122bb98a4670a3d64cda4f40343c",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "bimorphNodes",
+      "Version": "4.2.1",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "92d68499258242f585f81a8f422233c5"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.13",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "2.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.13.1.3887",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "92d68499258242f585f81a8f422233c5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "CAD.DetailCurvesFromCADLayers",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 728.66666666666652,
+        "Y": 251.33333333333329
+      },
+      {
+        "Id": "c540462bd2bf4014912d1b1428615d64",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Select Model Elements",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 248.0,
+        "Y": 319.33333333333326
+      },
+      {
+        "Id": "b3e6d95c926741788ed3eff0caf0ae87",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Views",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 270.66666666666652,
+        "Y": 486.0
+      }
+    ],
+    "Annotations": [],
+    "X": 0.0,
+    "Y": 0.0,
+    "Zoom": 1.0
+  }
+}
