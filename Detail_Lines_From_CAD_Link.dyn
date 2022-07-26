@@ -6,7 +6,24 @@
   "ElementResolver": {
     "ResolutionMap": {}
   },
-  "Inputs": [],
+  "Inputs": [
+    {
+      "Id": "c540462bd2bf4014912d1b1428615d64",
+      "Name": "Select Model Elements",
+      "Type": "hostSelection",
+      "Value": "255b96e0-ef12-4216-9fde-505c4070a8fc-00223980",
+      "Description": "Select multiple elements from the Revit document.",
+      "SelectedIndex": 0
+    },
+    {
+      "Id": "b3e6d95c926741788ed3eff0caf0ae87",
+      "Name": "Views",
+      "Type": "dropdownSelection",
+      "Value": "TYP. PLANTER DETAIL",
+      "Description": "All views available in the current document.",
+      "SelectedIndex": 463
+    }
+  ],
   "Outputs": [],
   "Nodes": [
     {
@@ -122,7 +139,7 @@
     {
       "Start": "ca6860777acd4e59a48ab319887af3b2",
       "End": "9d7b51a934a14d5d8876abd51749f761",
-      "Id": "e3d78d7678a94df08860a46d0cb7f375",
+      "Id": "9ef6a0f9749243918992b3e3f28b4e4b",
       "IsHidden": "False"
     },
     {
@@ -202,7 +219,7 @@
       },
       {
         "Id": "c540462bd2bf4014912d1b1428615d64",
-        "IsSetAsInput": false,
+        "IsSetAsInput": true,
         "IsSetAsOutput": false,
         "Name": "Select Model Elements",
         "ShowGeometry": true,
@@ -212,7 +229,7 @@
       },
       {
         "Id": "b3e6d95c926741788ed3eff0caf0ae87",
-        "IsSetAsInput": false,
+        "IsSetAsInput": true,
         "IsSetAsOutput": false,
         "Name": "Views",
         "ShowGeometry": true,
@@ -222,8 +239,8 @@
       }
     ],
     "Annotations": [],
-    "X": 0.0,
-    "Y": 0.0,
-    "Zoom": 1.0
+    "X": 96.33435518092071,
+    "Y": 193.75158858462245,
+    "Zoom": 0.54173669184971529
   }
 }
