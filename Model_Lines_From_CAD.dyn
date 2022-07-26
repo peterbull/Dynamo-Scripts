@@ -1,0 +1,237 @@
+{
+  "Uuid": "fc8dd35b-2368-4cbb-a6ee-6fb9fec1b7b5",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Model_Lines_From_CAD_Link",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [
+    {
+      "Id": "c540462bd2bf4014912d1b1428615d64",
+      "Name": "Select Model Elements",
+      "Type": "hostSelection",
+      "Value": "a1760201-cce4-4bb5-ad42-c043511c6fa8-00225416",
+      "Description": "Select multiple elements from the Revit document.",
+      "SelectedIndex": 0
+    }
+  ],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementsSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "a1760201-cce4-4bb5-ad42-c043511c6fa8-00225416"
+      ],
+      "Id": "c540462bd2bf4014912d1b1428615d64",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ca6860777acd4e59a48ab319887af3b2",
+          "Name": "Elements",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "CAD.CurvesFromCADLayers@Revit.Elements.ImportInstance,string[],bool,string[]",
+      "Id": "83f281cc3e7d4ff891912c8894207d98",
+      "Inputs": [
+        {
+          "Id": "5d37d4aab659483aa636d0b99d7e9065",
+          "Name": "importInstance",
+          "Description": "Input the ImportInstance to convert to curves.\n\nImportInstance",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "58edce8b8de549a0846e2a6a52023ffc",
+          "Name": "layerNames",
+          "Description": "Input the layer names for conversion. Leave unconnected to convert all layers. Names are case-sensitive.\n\nstring[]\nDefault value : []",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "71017d71224340a5a1c82fcd8b8c0426",
+          "Name": "createModelCurves",
+          "Description": "Set to True to convert into Revit Model Lines.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7807436d0a284b10a15cc7c183ef901f",
+          "Name": "lineStyleMap",
+          "Description": "Input the LineStyle name to map to each layer. Longest lacing is used by default.\n\nstring[]\nDefault value : []",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3b3ed06c94bd4267a9943a6bcf71d754",
+          "Name": "Curve[][]",
+          "Description": "Curve[][]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9947c336de0d43cdb6e93b14d874c963",
+          "Name": "layerKeys[]",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "ToLinkStatus curves from a CAD link or import by layer name. Enter LineStyle names to map to each layer during conversion.\r\rThe node is optimized to convert curve types that typically fail when using Dynamo Element.Curves node or Revit Explode.\r\rVisit bimorph.com/bimorph-nodes for support.\n\nCAD.CurvesFromCADLayers (importInstance: ImportInstance, layerNames: string[] = [], createModelCurves: bool = false, lineStyleMap: string[] = []): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "true;",
+      "Id": "88d17a08643c4cc58640c7dbbb47bdf3",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "2161a94e74ce4c638363431f00505db2",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "ca6860777acd4e59a48ab319887af3b2",
+      "End": "5d37d4aab659483aa636d0b99d7e9065",
+      "Id": "060173a5769149029bc878fabe56f8a4",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "2161a94e74ce4c638363431f00505db2",
+      "End": "71017d71224340a5a1c82fcd8b8c0426",
+      "Id": "72c49d07541f4a0198300f5f1f927b77",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "bimorphNodes",
+      "Version": "4.2.1",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "83f281cc3e7d4ff891912c8894207d98"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.13",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "2.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.13.1.3887",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "c540462bd2bf4014912d1b1428615d64",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Name": "Select Model Elements",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 271.05924964541282,
+        "Y": 252.40526728933048
+      },
+      {
+        "Id": "83f281cc3e7d4ff891912c8894207d98",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "CAD.CurvesFromCADLayers",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 711.07774332367353,
+        "Y": 239.520878862588
+      },
+      {
+        "Id": "88d17a08643c4cc58640c7dbbb47bdf3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 326.40496082387494,
+        "Y": 411.69897110523743
+      }
+    ],
+    "Annotations": [],
+    "X": -244.50322518454857,
+    "Y": 38.193152562997142,
+    "Zoom": 1.3083018840073641
+  }
+}
