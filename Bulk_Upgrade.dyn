@@ -6,7 +6,24 @@
   "ElementResolver": {
     "ResolutionMap": {}
   },
-  "Inputs": [],
+  "Inputs": [
+    {
+      "Id": "4b8a53789c0a40e49bd65f0a8b3a2756",
+      "Name": "Directory Path",
+      "Type": "string",
+      "Value": "C:\\Users\\peter\\Dropbox\\Revit\\Po-RVT\\Russian Revit Stuff - Copy\\03_Doors\\01_Single Panel",
+      "Description": "Allows you to select a directory on the system to get its path",
+      "SelectedIndex": 0
+    },
+    {
+      "Id": "26b65a257cb246bc9d98aa2e04b17d90",
+      "Name": "Include Subdirectories",
+      "Type": "boolean",
+      "Value": "false",
+      "Description": "Selection between a true and false.",
+      "SelectedIndex": 0
+    }
+  ],
   "Outputs": [],
   "Nodes": [
     {
@@ -119,23 +136,14 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
       "NodeType": "CodeBlockNode",
-      "Code": "\"*.rfa\";\ntrue;",
+      "Code": "\"*.rfa\";",
       "Id": "4cf4a68869a94bba8728e358c71d6fe7",
       "Inputs": [],
       "Outputs": [
         {
-          "Id": "2934777decf343bb9697c14ce85adf25",
+          "Id": "c368b654295b4332a87a1a04d5742359",
           "Name": "",
           "Description": "Value of expression at line 1",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "028c570db538405091db7c1e42d6c2fb",
-          "Name": "",
-          "Description": "Value of expression at line 2",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -209,7 +217,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "This node will open the given file in the background.\n\nApplications.OpenDocumentFile (filePath: string, audit: bool = false, detachFromCentral: bool = false, preserveWorksets: bool = true, closeAllWorksets: bool = false): var[]..[]"
+      "Description": "This node will open the given file in the background.\n\nApplications.OpenDocumentFile (filePath: string, audit: bool = false, detachFromCentral: bool = false, preserveWorksets: bool = true, closeAllWorksets: bool = false): Document"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
@@ -289,48 +297,76 @@
       ],
       "Replication": "Disabled",
       "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": false,
+      "Id": "26b65a257cb246bc9d98aa2e04b17d90",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "830253e9334142b6a78fbbd033de73ad",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
     }
   ],
   "Connectors": [
     {
       "Start": "27aaff5a4b8f4ce99757c46f765dd2c0",
       "End": "b2d45a67734540dfb7848eeae97769a2",
-      "Id": "c1e45d6feeec4cccb474e17ed5010bfb"
+      "Id": "c1e45d6feeec4cccb474e17ed5010bfb",
+      "IsHidden": "False"
     },
     {
       "Start": "987dac5a09dd42db9e9a363efa445cd7",
       "End": "8711ddd4533e4834a6e817922d0e2a78",
-      "Id": "baa5ac778c514c77b1a30d5523a64fde"
+      "Id": "baa5ac778c514c77b1a30d5523a64fde",
+      "IsHidden": "False"
     },
     {
       "Start": "c467841095a346eca4031af57ebdd44e",
       "End": "b0036b33df0147ce96d4159dc1bafc8e",
-      "Id": "6b54b1f45de44db6bc53ddd011b436b9"
+      "Id": "6b54b1f45de44db6bc53ddd011b436b9",
+      "IsHidden": "False"
     },
     {
-      "Start": "2934777decf343bb9697c14ce85adf25",
+      "Start": "c368b654295b4332a87a1a04d5742359",
       "End": "3e45ebb446c64a0fbcacda50b6ac1304",
-      "Id": "dfa75e8d42184211bb3d4bf167086ba2"
-    },
-    {
-      "Start": "028c570db538405091db7c1e42d6c2fb",
-      "End": "d8b4d0e1929447639931194f47a3ba9e",
-      "Id": "852753ce949245be80a91a56563ed8e0"
+      "Id": "adf3f58fca6347268afa8e5736f38898",
+      "IsHidden": "False"
     },
     {
       "Start": "b8ad91c612154c4eb1350267b1af736b",
       "End": "b40e9aebc751495c93d0880299c11ed8",
-      "Id": "026ec97bd3654f17b22df6bab5f958e7"
+      "Id": "026ec97bd3654f17b22df6bab5f958e7",
+      "IsHidden": "False"
     },
     {
       "Start": "494c2695c0db44659ad0f50630045016",
       "End": "8005063e3da0456199f7021a70c3bb6c",
-      "Id": "89e574d3be0d43538f935d003cfd000a"
+      "Id": "89e574d3be0d43538f935d003cfd000a",
+      "IsHidden": "False"
     },
     {
       "Start": "df6afcb00848432cab745b6266f53080",
       "End": "07fdcea947924b188bd80eb9507d0873",
-      "Id": "17a664b260e54ce8ac6fcb3cee389643"
+      "Id": "17a664b260e54ce8ac6fcb3cee389643",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "830253e9334142b6a78fbbd033de73ad",
+      "End": "d8b4d0e1929447639931194f47a3ba9e",
+      "Id": "2713c31c4b424a5c9bccdf59f0d762cf",
+      "IsHidden": "False"
     }
   ],
   "Dependencies": [],
@@ -353,6 +389,12 @@
       "Name": "Properties",
       "Version": "2.12",
       "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "2.0",
+      "Data": {}
     }
   ],
   "Author": "",
@@ -368,7 +410,7 @@
       "ScaleFactor": 1.0,
       "HasRunWithoutCrash": true,
       "IsVisibleInDynamoLibrary": true,
-      "Version": "2.12.0.5650",
+      "Version": "2.13.1.3887",
       "RunType": "Manual",
       "RunPeriod": "1000"
     },
@@ -384,16 +426,17 @@
       "UpY": 1.0,
       "UpZ": 0.0
     },
+    "ConnectorPins": [],
     "NodeViews": [
       {
         "Id": "4b8a53789c0a40e49bd65f0a8b3a2756",
-        "IsSetAsInput": false,
+        "IsSetAsInput": true,
         "IsSetAsOutput": false,
         "Name": "Directory Path",
         "ShowGeometry": true,
         "Excluded": false,
-        "X": 84.0,
-        "Y": 261.0
+        "X": -103.60198937781445,
+        "Y": 167.19900531109278
       },
       {
         "Id": "19908bfc50a546f6a2097d6ef72cfa36",
@@ -422,8 +465,8 @@
         "Name": "Code Block",
         "ShowGeometry": true,
         "Excluded": false,
-        "X": 473.0,
-        "Y": 388.0
+        "X": 397.37339132750242,
+        "Y": 402.65265543029636
       },
       {
         "Id": "ad232757eef14a5a9f1164dba65a76e1",
@@ -462,13 +505,23 @@
         "Name": "Code Block",
         "ShowGeometry": true,
         "Excluded": false,
-        "X": 1512.5934718100891,
-        "Y": 437.37388724035611
+        "X": 1497.736130841432,
+        "Y": 625.9478303040778
+      },
+      {
+        "Id": "26b65a257cb246bc9d98aa2e04b17d90",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Name": "Include Subdirectories",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 494.18100433452605,
+        "Y": 557.64373508428309
       }
     ],
     "Annotations": [],
-    "X": 86.695466215787292,
-    "Y": -12.065852519497298,
-    "Zoom": 0.675188291375582
+    "X": -336.99867606665265,
+    "Y": 93.1465295644386,
+    "Zoom": 0.583325555020237
   }
 }
