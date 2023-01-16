@@ -1,0 +1,257 @@
+{
+  "Uuid": "f27f9d04-e6c1-49b9-9810-301f892a0f8c",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "load_families_from_directory",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "1fe7cd38-5704-4966-bb74-5d7d9245568c",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "0042a40bd355447e9ca81f88f070d47c",
+      "Inputs": [
+        {
+          "Id": "ab0a623ae8c84b5e8bfc0abb30ccd1e7",
+          "Name": "path",
+          "Description": " The path to the family to be loaded\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f42bbb696c1040c1b7bafbe76831a9a1",
+          "Name": "familyTypes",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "50e6785b595a45e38e536b713b8a999d",
+          "Name": "success",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "A very crude implementation of family loading. Will *not* reload an already loaded family of the same name."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "59b275d02e644675940102be248c9c26",
+      "Inputs": [
+        {
+          "Id": "fb052e99bb3343faae89cb60a32e5211",
+          "Name": "",
+          "Description": "Node to show output from",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4cdca513ee8b48269c7674210e795042",
+          "Name": "",
+          "Description": "Node output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the node's output"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "07558fe46d074d5ba40035b275d0c8fd",
+      "Inputs": [
+        {
+          "Id": "7767400d65aa400fb8395afb2a1b2d96",
+          "Name": "",
+          "Description": "Node to show output from",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "293cee6e63504be08b3569cc9af68532",
+          "Name": "",
+          "Description": "Node output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the node's output"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.Directory, CoreNodeModels",
+      "HintPath": "",
+      "InputValue": "No file selected.",
+      "NodeType": "ExtensionNode",
+      "Id": "8106deccb99e4506a4ea57c560ea9d7f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3aa3e1524e294ed78fdd03a0f70d3711",
+          "Name": "",
+          "Description": "Directory path",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows you to select a directory on the system to get its path"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "f42bbb696c1040c1b7bafbe76831a9a1",
+      "End": "fb052e99bb3343faae89cb60a32e5211",
+      "Id": "1248457fe3b54bff9dbb5d0b5ba36fd6",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "50e6785b595a45e38e536b713b8a999d",
+      "End": "7767400d65aa400fb8395afb2a1b2d96",
+      "Id": "fb2761df28dd4ed6bdd421c61369f505",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3aa3e1524e294ed78fdd03a0f70d3711",
+      "End": "ab0a623ae8c84b5e8bfc0abb30ccd1e7",
+      "Id": "dde29e2ae34f41dcbee1122d0f0f9847",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [
+    "1fe7cd38-5704-4966-bb74-5d7d9245568c"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "Document.LoadFamily.dyf",
+      "ReferenceType": "DYFFile",
+      "Nodes": [
+        "0042a40bd355447e9ca81f88f070d47c"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Document.LoadFamily",
+        "ShowGeometry": true,
+        "Id": "0042a40bd355447e9ca81f88f070d47c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 188.00000000000011,
+        "Y": 112.00000000000014
+      },
+      {
+        "Name": "Watch",
+        "ShowGeometry": true,
+        "Id": "59b275d02e644675940102be248c9c26",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 532.0,
+        "Y": 66.666666666666657
+      },
+      {
+        "Name": "Watch",
+        "ShowGeometry": true,
+        "Id": "07558fe46d074d5ba40035b275d0c8fd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 684.66666666666663,
+        "Y": 306.66666666666663
+      },
+      {
+        "Name": "Directory Path",
+        "ShowGeometry": true,
+        "Id": "8106deccb99e4506a4ea57c560ea9d7f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -194.09212898161002,
+        "Y": 55.402805156792112
+      }
+    ],
+    "Annotations": [],
+    "X": 267.16994498970416,
+    "Y": 115.61159838886692,
+    "Zoom": 0.78916103292481576
+  }
+}

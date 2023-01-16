@@ -1,0 +1,882 @@
+{
+  "Uuid": "51dc85aa-5a0a-467a-9d84-f160e1270772",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "VDS_Export_DWG",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [
+    {
+      "Id": "d51ba5a13ac347969517a3179e8995a9",
+      "Name": "Directory Path",
+      "Type": "string",
+      "Type2": "string",
+      "Value": "C:\\Users\\peter\\Downloads\\dwgtest",
+      "Description": "Allows you to select a directory on the system to get its path",
+      "SelectedIndex": 0
+    },
+    {
+      "Id": "2e7c785cb7754fcf85252b24e44c2785",
+      "Name": "Drafting View Name",
+      "Type": "string",
+      "Type2": "string",
+      "Value": "test2344",
+      "Description": "Creates a string.",
+      "SelectedIndex": 0
+    },
+    {
+      "Id": "8c667dadc6ed43388024b1605757d777",
+      "Name": "Views",
+      "Type": "selection",
+      "Type2": "dropdownSelection",
+      "Value": "Section 2",
+      "Description": "All views available in the current document.",
+      "SelectedIndex": 141
+    }
+  ],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "WombatDynamo.IO.ExportAsDWG@string,string,Revit.Elements.Element[]",
+      "Id": "3626fdee5c7d4a9aafa404703867f71b",
+      "Inputs": [
+        {
+          "Id": "8affe64e379245cdbd3bf1745148d15e",
+          "Name": "directory",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c060d704481441bf9e43c50048d7f3e2",
+          "Name": "filename",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7027f9fa8ced439ba95a210caffb70fa",
+          "Name": "viewsToExport",
+          "Description": "Element[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0939b5177adc4769a87b1354f4b691ee",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Export a view to DWG.\n\nIO.ExportAsDWG (directory: string, filename: string, viewsToExport: Element[]): string"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.Directory, CoreNodeModels",
+      "HintPath": "C:\\Users\\peter\\Downloads\\dwgtest",
+      "InputValue": "C:\\Users\\peter\\Downloads\\dwgtest",
+      "NodeType": "ExtensionNode",
+      "Id": "d51ba5a13ac347969517a3179e8995a9",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "13f46331f56b4633a3101ef8095a94bf",
+          "Name": "",
+          "Description": "Directory path",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows you to select a directory on the system to get its path"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "test2344",
+      "Id": "2e7c785cb7754fcf85252b24e44c2785",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "e978a2c1fd37491a903ad5285df801f0",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.Views, DSRevitNodesUI",
+      "SelectedIndex": 141,
+      "SelectedString": "Section 2",
+      "NodeType": "ExtensionNode",
+      "Id": "8c667dadc6ed43388024b1605757d777",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "bc92a88aad9047a78a792d1efa44bf1b",
+          "Name": "Views",
+          "Description": "The selected Views",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All views available in the current document."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "f4720f2a-ce11-4175-90b5-36127498a2ce",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "b43d7ca2f07e4ba4aac6a5dd6c27923d",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "cda79626f6bf4e19a946266a73715bf9",
+          "Name": "Colormode",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e3353971e8ec4d208582f061669f614b",
+          "Name": "Placement",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "01f76fbc1cc6414aac46703b7a18d4f1",
+          "Name": "Unit",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Enumerate Color mode, Type of Placement and Type of Unit.\r\nWorks with the \"Link DWG\" and \"Import DWG\" nodes."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "x[2];",
+      "Id": "86592e4e57fd4ac2b4b9d146fa6df4fb",
+      "Inputs": [
+        {
+          "Id": "47baa161cf6d465c915caa7b0c81c10f",
+          "Name": "x",
+          "Description": "x",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "24d009fd84bf4a5e8a0304529c70695c",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "x[1];",
+      "Id": "9e8d469e8ef64792ae9d0902ca36c712",
+      "Inputs": [
+        {
+          "Id": "d0efcb487e08434c9af021eb213a67ce",
+          "Name": "x",
+          "Description": "x",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a69cc8de5b8541c8b79e77bffe50c4ff",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "x[0];",
+      "Id": "4a7f2654710d4950b91120631ad346f9",
+      "Inputs": [
+        {
+          "Id": "ffb17ce6d4f647e68ce41f89ef9a4f50",
+          "Name": "x",
+          "Description": "x",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3b4d0fd799894b719049a6b67d9c59ed",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "CAD.DetailCurvesFromCADLayers@Revit.Elements.ImportInstance,Revit.Elements.Views.View,string[],string[]",
+      "Id": "fa5b29c3b16c4f32ab68c16af8cc7b9f",
+      "Inputs": [
+        {
+          "Id": "99fab525f51c4c1f8fe80fbcc01da4d9",
+          "Name": "importInstance",
+          "Description": "Input the ImportInstance to convert to curves.\n\nImportInstance",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "16c5c9c3c6754eccbeafd70d8b0040b2",
+          "Name": "view",
+          "Description": "Select the target View for the Detail Lines. The View should be related to the ImportInstance.\n\nView",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a1b43652295a4b03b33d0506ad659093",
+          "Name": "layerNames",
+          "Description": "Input the layer names for conversion. Leave unconnected to convert all layers. Names are case-sensitive.\n\nstring[]\nDefault value : []",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "669e50fc09cc452da25b85dac2c14c7d",
+          "Name": "lineStyleMap",
+          "Description": "Input the LineStyle names to map to each layer. Longest lacing is used by default.\n\nstring[]\nDefault value : []",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "bd3b78510bea4a15857f46f73b9d26d1",
+          "Name": "DetailCurve[][]",
+          "Description": "DetailCurve[][]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "fedbc2961bf9488aabd15fb5d92a146f",
+          "Name": "layerKeys[]",
+          "Description": "string[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "ToLinkStatus curves from a CAD link or import to Revit Detail curves by layer name. Enter LineStyle names to map to each layer during conversion.\r\rThe node is optimized to convert curve types that typically fail when using Dynamo Element.Curves node or Revit Explode.\r\rVisit bimorph.com/bimorph-nodes for support.\n\nCAD.DetailCurvesFromCADLayers (importInstance: ImportInstance, view: View, layerNames: string[] = [], lineStyleMap: string[] = []): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Views.DraftingView.ByName@string",
+      "Id": "81dbe66248c643688ea4a1fa27f4bc99",
+      "Inputs": [
+        {
+          "Id": "5da8ed5f016e438ebf76f8b4f50758e9",
+          "Name": "name",
+          "Description": "Name of the view\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "de737cdab0d2460aa4fa26f08cc127ee",
+          "Name": "DraftingView",
+          "Description": "The view",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Revit DraftingView given it's name\n\nDraftingView.ByName (name: string): DraftingView"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "+@var[]..[],var[]..[]",
+      "Id": "e7f032df10734609a9fe1535cb98c89d",
+      "Inputs": [
+        {
+          "Id": "2466135a943a4f97ae9fbb1efe0c4f3a",
+          "Name": "x",
+          "Description": "Integer value, double value or string\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "005c0c3ec7954199a4bf87fbbd247f85",
+          "Name": "y",
+          "Description": "Integer value, double value or string\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e922ca587256410681be5f1a072da62b",
+          "Name": "var",
+          "Description": "The sum of two input numbers, or the concatenation of two strings",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns addition of x and y\n\n+ (x: var[]..[], y: var[]..[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\".dwg\";",
+      "Id": "87e8d1de92bf4c958d2c8e12b535a141",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "4f7e423c024e43f5afa10c683105b4fc",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "c32ac83b-a3f9-4e58-a26d-2ac2ca88a674",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "0c28f341b00747c3979f4976e88da04e",
+      "Inputs": [
+        {
+          "Id": "1fc4afcd9cad4879a6ed326e3f07009f",
+          "Name": "Filepaths",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f08f2f054795486a9c00a5eb6ab8b23d",
+          "Name": "views",
+          "Description": "As many Views as FilePaths\n\nvar[]..[]\nDefault value : Revit.Application.Document.Current.ActiveView",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "35fce98ca7444ea39af7342c5120e2ff",
+          "Name": "CustomScale",
+          "Description": "Warning : If this is defined, it takes preference over units\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "dff1e9b0b0fb4cfba3190074c3740ec8",
+          "Name": "Colormode",
+          "Description": "var[]..[]\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6a6fad3455b24caab7b08efa6b962b9e",
+          "Name": "Placement",
+          "Description": "var[]..[]\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2dc5468064484a33b6030e287eda693a",
+          "Name": "unit",
+          "Description": "var[]..[]\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "aad660a092394252ad62ee307eafe6c2",
+          "Name": "AllView",
+          "Description": "DWG visible in all views ?\nOption not available in 3D views\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "39f1f1190f044393af6b0e182e6bb693",
+          "Name": "DrawLayer",
+          "Description": "Draw layer : Foreground (0) or Background (1)\n\nint\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "cb11beb8b0604bfba2b4d80406cc0605",
+          "Name": "Views",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "06a0ce7a684646808731d8a79003d8f2",
+          "Name": "Name",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "950978fad4174813b2c6af3ac7677fba",
+          "Name": "CADLinkType",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2163ffcf625b48628cd554bcf2be5741",
+          "Name": "ImportInstance",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Link DWGs in views with options.\r\nUse with the Enumerate DWG import options node.\r\nBased on a archilab's script."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "0939b5177adc4769a87b1354f4b691ee",
+      "End": "2466135a943a4f97ae9fbb1efe0c4f3a",
+      "Id": "2e1691d73b43486f9e6ea77a364f8111",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "13f46331f56b4633a3101ef8095a94bf",
+      "End": "8affe64e379245cdbd3bf1745148d15e",
+      "Id": "17cfcacba58341699e711a0f2bb370a6",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "e978a2c1fd37491a903ad5285df801f0",
+      "End": "5da8ed5f016e438ebf76f8b4f50758e9",
+      "Id": "8de0b974a3bd44faac2ace25d4088855",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "e978a2c1fd37491a903ad5285df801f0",
+      "End": "c060d704481441bf9e43c50048d7f3e2",
+      "Id": "c11dcebaa0a649f88c91689fb235fce9",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "bc92a88aad9047a78a792d1efa44bf1b",
+      "End": "7027f9fa8ced439ba95a210caffb70fa",
+      "Id": "0b370369e5e9402688a6347b9fd465da",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "cda79626f6bf4e19a946266a73715bf9",
+      "End": "47baa161cf6d465c915caa7b0c81c10f",
+      "Id": "e70e3cff69a3499caab1bcb6b1671b11",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "e3353971e8ec4d208582f061669f614b",
+      "End": "d0efcb487e08434c9af021eb213a67ce",
+      "Id": "c606da7223a54d43b302e540120abdb6",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "01f76fbc1cc6414aac46703b7a18d4f1",
+      "End": "ffb17ce6d4f647e68ce41f89ef9a4f50",
+      "Id": "b8911fb300994772b571d3082ebbc82e",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "24d009fd84bf4a5e8a0304529c70695c",
+      "End": "dff1e9b0b0fb4cfba3190074c3740ec8",
+      "Id": "46156d78bdf64da6b66c86b794ffe47c",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "a69cc8de5b8541c8b79e77bffe50c4ff",
+      "End": "6a6fad3455b24caab7b08efa6b962b9e",
+      "Id": "84bbcc88c5ca4f33ac65829feaae6c28",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3b4d0fd799894b719049a6b67d9c59ed",
+      "End": "2dc5468064484a33b6030e287eda693a",
+      "Id": "75dbfccfca1044c6a4c9daf56f2d6dc3",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "de737cdab0d2460aa4fa26f08cc127ee",
+      "End": "f08f2f054795486a9c00a5eb6ab8b23d",
+      "Id": "2dc774553923431e95ed08a86b66d7a1",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "e922ca587256410681be5f1a072da62b",
+      "End": "1fc4afcd9cad4879a6ed326e3f07009f",
+      "Id": "9b612e5d2ccd48148e6db0c068e2c917",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "4f7e423c024e43f5afa10c683105b4fc",
+      "End": "005c0c3ec7954199a4bf87fbbd247f85",
+      "Id": "851b84a7c8574e5ba494e376a21456b7",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "cb11beb8b0604bfba2b4d80406cc0605",
+      "End": "16c5c9c3c6754eccbeafd70d8b0040b2",
+      "Id": "bf2085a0fa60496bb76e19e376fc0147",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "2163ffcf625b48628cd554bcf2be5741",
+      "End": "99fab525f51c4c1f8fe80fbcc01da4d9",
+      "Id": "6797d164d36f4ecbb74dd8f971dd4688",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [
+    "f4720f2a-ce11-4175-90b5-36127498a2ce",
+    "c32ac83b-a3f9-4e58-a26d-2ac2ca88a674"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "WombatDynamo",
+      "Version": "1.3.2",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "3626fdee5c7d4a9aafa404703867f71b"
+      ]
+    },
+    {
+      "Name": "Genius Loci",
+      "Version": "2022.9.16",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "b43d7ca2f07e4ba4aac6a5dd6c27923d",
+        "0c28f341b00747c3979f4976e88da04e"
+      ]
+    },
+    {
+      "Name": "bimorphNodes",
+      "Version": "4.2.4",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "fa5b29c3b16c4f32ab68c16af8cc7b9f"
+      ]
+    },
+    {
+      "Name": "test2344.dwg",
+      "ReferenceType": "External",
+      "Nodes": [
+        "e7f032df10734609a9fe1535cb98c89d"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [
+    {
+      "NodeId": "81dbe662-48c6-4368-8ea4-a1fa27f4bc99",
+      "Binding": {
+        "ByName_InClassDecl-1_InFunctionScope-1_Instance0_81dbe662-48c6-4368-8ea4-a1fa27f4bc99": "PFNPQVAtRU5WOkVudmVsb3BlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOlNPQVAtRU5DPSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy9zb2FwL2VuY29kaW5nLyIgeG1sbnM6U09BUC1FTlY9Imh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3NvYXAvZW52ZWxvcGUvIiB4bWxuczpjbHI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vc29hcC9lbmNvZGluZy9jbHIvMS4wIiBTT0FQLUVOVjplbmNvZGluZ1N0eWxlPSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy9zb2FwL2VuY29kaW5nLyI+DQo8U09BUC1FTlY6Qm9keT4NCjxhMTpDYWxsU2l0ZV94MDAyQl9UcmFjZVNlcmlhbGlzZXJIZWxwZXIgaWQ9InJlZi0xIiB4bWxuczphMT0iaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9jbHIvbnNhc3NlbS9Qcm90b0NvcmUvUHJvdG9Db3JlJTJDJTIwVmVyc2lvbiUzRDIuMTYuMS4yNzI3JTJDJTIwQ3VsdHVyZSUzRG5ldXRyYWwlMkMlMjBQdWJsaWNLZXlUb2tlbiUzRG51bGwiPg0KPE51bWJlck9mRWxlbWVudHM+MTwvTnVtYmVyT2ZFbGVtZW50cz4NCjxCYXNlLTBfSGFzRGF0YT50cnVlPC9CYXNlLTBfSGFzRGF0YT4NCjxCYXNlLTBfRGF0YSBpZD0icmVmLTMiPlBGTlBRVkF0UlU1V09rVnVkbVZzYjNCbElIaHRiRzV6T25oemFUMGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TVM5WVRVeFRZMmhsYldFdGFXNXpkR0Z1WTJVaUlIaHRiRzV6T25oelpEMGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TVM5WVRVeFRZMmhsYldFaUlIaHRiRzV6T2xOUFFWQXRSVTVEUFNKb2RIUndPaTh2YzJOb1pXMWhjeTU0Yld4emIyRndMbTl5Wnk5emIyRndMMlZ1WTI5a2FXNW5MeUlnZUcxc2JuTTZVMDlCVUMxRlRsWTlJbWgwZEhBNkx5OXpZMmhsYldGekxuaHRiSE52WVhBdWIzSm5MM052WVhBdlpXNTJaV3h2Y0dVdklpQjRiV3h1Y3pwamJISTlJbWgwZEhBNkx5OXpZMmhsYldGekxtMXBZM0p2YzI5bWRDNWpiMjB2YzI5aGNDOWxibU52WkdsdVp5OWpiSEl2TVM0d0lpQlRUMEZRTFVWT1ZqcGxibU52WkdsdVoxTjBlV3hsUFNKb2RIUndPaTh2YzJOb1pXMWhjeTU0Yld4emIyRndMbTl5Wnk5emIyRndMMlZ1WTI5a2FXNW5MeUkrRFFvOFUwOUJVQzFGVGxZNlFtOWtlVDROQ2p4aE1UcFRaWEpwWVd4cGVtRmliR1ZKWkNCcFpEMGljbVZtTFRFaUlIaHRiRzV6T21FeFBTSm9kSFJ3T2k4dmMyTm9aVzFoY3k1dGFXTnliM052Wm5RdVkyOXRMMk5zY2k5dWMyRnpjMlZ0TDFKbGRtbDBVMlZ5ZG1salpYTXVVR1Z5YzJsemRHVnVZMlV2VW1WMmFYUlRaWEoyYVdObGN5VXlReVV5TUZabGNuTnBiMjRsTTBReUxqRTJMakV1TmpVeE1DVXlReVV5TUVOMWJIUjFjbVVsTTBSdVpYVjBjbUZzSlRKREpUSXdVSFZpYkdsalMyVjVWRzlyWlc0bE0wUnVkV3hzSWo0TkNqeHpkSEpwYm1kSlJDQnBaRDBpY21WbUxUTWlQamN3TkRnMU5UTTNMVGd4TkdRdE5ETXdPUzFoWlRoaUxXRXhNelEwWXpBNE9UWXhZaTB3TURCalpqWXhaVHd2YzNSeWFXNW5TVVErRFFvOGFXNTBTVVErT0RRNU5ETTRQQzlwYm5SSlJENE5Dand2WVRFNlUyVnlhV0ZzYVhwaFlteGxTV1ErRFFvOEwxTlBRVkF0UlU1V09rSnZaSGsrRFFvOEwxTlBRVkF0UlU1V09rVnVkbVZzYjNCbFBnMEs8L0Jhc2UtMF9EYXRhPg0KPEJhc2UtMF9IYXNOZXN0ZWREYXRhPmZhbHNlPC9CYXNlLTBfSGFzTmVzdGVkRGF0YT4NCjwvYTE6Q2FsbFNpdGVfeDAwMkJfVHJhY2VTZXJpYWxpc2VySGVscGVyPg0KPC9TT0FQLUVOVjpCb2R5Pg0KPC9TT0FQLUVOVjpFbnZlbG9wZT4NCg=="
+      }
+    }
+  ],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "IO.ExportAsDWG",
+        "ShowGeometry": true,
+        "Id": "3626fdee5c7d4a9aafa404703867f71b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 728.96759971942481,
+        "Y": 12.631868084170151
+      },
+      {
+        "Name": "Directory Path",
+        "ShowGeometry": true,
+        "Id": "d51ba5a13ac347969517a3179e8995a9",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 187.53840419949211,
+        "Y": -37.7817565126673
+      },
+      {
+        "Name": "Drafting View Name",
+        "ShowGeometry": true,
+        "Id": "2e7c785cb7754fcf85252b24e44c2785",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 216.4725186548747,
+        "Y": 119.19762594276432
+      },
+      {
+        "Name": "Views",
+        "ShowGeometry": true,
+        "Id": "8c667dadc6ed43388024b1605757d777",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 156.13368111286354,
+        "Y": 261.03802414748094
+      },
+      {
+        "Name": "Enumerate DWG import options",
+        "ShowGeometry": true,
+        "Id": "b43d7ca2f07e4ba4aac6a5dd6c27923d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 738.016469725954,
+        "Y": 414.49771196088159
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "86592e4e57fd4ac2b4b9d146fa6df4fb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1141.0697866107341,
+        "Y": 230.59505921872153
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "9e8d469e8ef64792ae9d0902ca36c712",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1139.7862406796082,
+        "Y": 388.39849455641195
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "4a7f2654710d4950b91120631ad346f9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1217.2930075171241,
+        "Y": 568.72036026002058
+      },
+      {
+        "Name": "CAD.DetailCurvesFromCADLayers",
+        "ShowGeometry": true,
+        "Id": "fa5b29c3b16c4f32ab68c16af8cc7b9f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1809.9311118943206,
+        "Y": -57.124826672108583
+      },
+      {
+        "Name": "DraftingView.ByName",
+        "ShowGeometry": true,
+        "Id": "81dbe66248c643688ea4a1fa27f4bc99",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 838.33471466745084,
+        "Y": -200.22782044021824
+      },
+      {
+        "Name": "+",
+        "ShowGeometry": true,
+        "Id": "e7f032df10734609a9fe1535cb98c89d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1103.9979180418195,
+        "Y": -26.118943527808426
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "87e8d1de92bf4c958d2c8e12b535a141",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 956.0,
+        "Y": 199.0
+      },
+      {
+        "Name": "Link DWG",
+        "ShowGeometry": true,
+        "Id": "0c28f341b00747c3979f4976e88da04e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1459.220029430435,
+        "Y": -204.69182255508656
+      }
+    ],
+    "Annotations": [],
+    "X": -1189.3020485082507,
+    "Y": 245.71282026781375,
+    "Zoom": 0.83900740767728632
+  }
+}

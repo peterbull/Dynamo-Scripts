@@ -1,0 +1,366 @@
+{
+  "Uuid": "68c458c8-fcc4-44aa-9922-00eea181a685",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "Curve_Array_Placement",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [
+    {
+      "Id": "475ae46edb8f4301ae59f1770391e500",
+      "Name": "Select Model Element",
+      "Type": "selection",
+      "Type2": "hostSelection",
+      "Value": "6c811376-cb37-4c6b-a0f4-a91180baba5d-000644f6",
+      "Description": "Select a model element from the document.",
+      "SelectedIndex": 0
+    },
+    {
+      "Id": "b688025b033b48ac975915b66c9aff11",
+      "Name": "Number Slider",
+      "Type": "number",
+      "Type2": "number",
+      "Value": "8",
+      "MaximumValue": 20.0,
+      "MinimumValue": 8.0,
+      "StepValue": 1.0,
+      "NumberType": "Double",
+      "Description": "A slider that produces numeric values.",
+      "SelectedIndex": 0
+    },
+    {
+      "Id": "b719164b878d4bba86f48fd5d366a749",
+      "Name": "Family Types",
+      "Type": "selection",
+      "Type2": "dropdownSelection",
+      "Value": "",
+      "Description": "All family types available in the document.",
+      "SelectedIndex": -1
+    }
+  ],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "6c811376-cb37-4c6b-a0f4-a91180baba5d-000644f6"
+      ],
+      "Id": "475ae46edb8f4301ae59f1770391e500",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f54e491c55754581821d0455a932b3ac",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.CurveElement.Curve",
+      "Id": "aecb2fa4552a46f5af9858a5a5e1532d",
+      "Inputs": [
+        {
+          "Id": "0ce48940eec64d7db65a528739f6b889",
+          "Name": "curveElement",
+          "Description": "Revit.Elements.CurveElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "dc7e4334e592474eacf6af7dd14d14f8",
+          "Name": "Curve",
+          "Description": "Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Obtain the geometry curve for this geometry curve\n\nCurveElement.Curve: Curve"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Curve.PointsAtEqualSegmentLength@int",
+      "Id": "b8197747562943ed8fe2d6fd5fb355e8",
+      "Inputs": [
+        {
+          "Id": "f80f1071fc514e069777cd1ba975c42a",
+          "Name": "curve",
+          "Description": "Autodesk.DesignScript.Geometry.Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "772ab17ff1c54aaaa0e2b478ff823039",
+          "Name": "divisions",
+          "Description": "Number of divisions\n\nint\nDefault value : 10",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "81d645a1f5ad4ea49f77c4d33c1a2140",
+          "Name": "Point[]",
+          "Description": "Points spaced equally along length of curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns points spaced equally along the curve length based on the input number of divisions\n\nCurve.PointsAtEqualSegmentLength (divisions: int = 10): Point[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.DoubleSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Double",
+      "MaximumValue": 20.0,
+      "MinimumValue": 8.0,
+      "StepValue": 1.0,
+      "InputValue": 8.0,
+      "Id": "b688025b033b48ac975915b66c9aff11",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "976ebae5c8e34a69a666b8b0216be8b7",
+          "Name": "",
+          "Description": "Double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A slider that produces numeric values."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.FamilyTypes, DSRevitNodesUI",
+      "SelectedIndex": -1,
+      "SelectedString": "",
+      "NodeType": "ExtensionNode",
+      "Id": "b719164b878d4bba86f48fd5d366a749",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "c90b9e6d7e804839a132a08d11d8a05e",
+          "Name": "Family Type",
+          "Description": "The selected Family Type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All family types available in the document."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.FamilyInstance.ByPoint@Revit.Elements.FamilyType,Autodesk.DesignScript.Geometry.Point",
+      "Id": "fcda98726eeb4ebabbbc16c5d92d2a3e",
+      "Inputs": [
+        {
+          "Id": "ec2709fecc5440cb9444a53735b04fd4",
+          "Name": "familyType",
+          "Description": "Family Type. Also called Family Symbol.\n\nFamilyType",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "41538863d4f8459f8607d0899d4939f1",
+          "Name": "point",
+          "Description": "Point in meters.\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "06860be3a2694bdc90be72c4f60a1aa7",
+          "Name": "FamilyInstance",
+          "Description": "FamilyInstance",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Place a Revit FamilyInstance given the FamilyType (also known as the FamilySymbol in the Revit API) and its coordinates in world space\n\nFamilyInstance.ByPoint (familyType: FamilyType, point: Point): FamilyInstance"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "f54e491c55754581821d0455a932b3ac",
+      "End": "0ce48940eec64d7db65a528739f6b889",
+      "Id": "b985d31594924b7584ef245efbe63a09",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "dc7e4334e592474eacf6af7dd14d14f8",
+      "End": "f80f1071fc514e069777cd1ba975c42a",
+      "Id": "85a5abb82f51422ba157ca2a224e18d5",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "81d645a1f5ad4ea49f77c4d33c1a2140",
+      "End": "41538863d4f8459f8607d0899d4939f1",
+      "Id": "876a8d4666374b7ba773bcac12937445",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "976ebae5c8e34a69a666b8b0216be8b7",
+      "End": "772ab17ff1c54aaaa0e2b478ff823039",
+      "Id": "9dd46db7d9a84c8aa893be0bf7735145",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "c90b9e6d7e804839a132a08d11d8a05e",
+      "End": "ec2709fecc5440cb9444a53735b04fd4",
+      "Id": "11d87918bddc496381dcca4b9e0791a1",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "None provided",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -6.3102991501517733,
+      "EyeY": 9.613866346230834,
+      "EyeZ": 12.9388619160318,
+      "LookX": 3.9559135494131095,
+      "LookY": -4.2855730118642033,
+      "LookZ": -19.120248822163365,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "475ae46edb8f4301ae59f1770391e500",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -292.140074363778,
+        "Y": 74.846617779040344
+      },
+      {
+        "Name": "CurveElement.Curve",
+        "ShowGeometry": true,
+        "Id": "aecb2fa4552a46f5af9858a5a5e1532d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 79.038184492126732,
+        "Y": -13.042869395757577
+      },
+      {
+        "Name": "Curve.PointsAtEqualSegmentLength",
+        "ShowGeometry": true,
+        "Id": "b8197747562943ed8fe2d6fd5fb355e8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 924.70635124306693,
+        "Y": 69.428719435303492
+      },
+      {
+        "Name": "Number Slider",
+        "ShowGeometry": true,
+        "Id": "b688025b033b48ac975915b66c9aff11",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 508.17016214443936,
+        "Y": 405.35778109603945
+      },
+      {
+        "Name": "Family Types",
+        "ShowGeometry": true,
+        "Id": "b719164b878d4bba86f48fd5d366a749",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 968.03021694022266,
+        "Y": 671.8886763012747
+      },
+      {
+        "Name": "FamilyInstance.ByPoint",
+        "ShowGeometry": true,
+        "Id": "fcda98726eeb4ebabbbc16c5d92d2a3e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1679.6679467583838,
+        "Y": 111.7152312961164
+      }
+    ],
+    "Annotations": [],
+    "X": 177.50917111968192,
+    "Y": 117.94581026274665,
+    "Zoom": 0.42690681228503335
+  }
+}
