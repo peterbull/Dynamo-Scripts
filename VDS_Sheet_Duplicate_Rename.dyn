@@ -2,7 +2,7 @@
   "Uuid": "70be61cb-d75c-4227-9c58-c3ef51747021",
   "IsCustomNode": false,
   "Description": "",
-  "Name": "Sheet_Duplicate_Rename",
+  "Name": "VDS_Sheet_Duplicate_Rename",
   "ElementResolver": {
     "ResolutionMap": {}
   },
@@ -23,6 +23,15 @@
       "Type2": "boolean",
       "Value": "true",
       "Description": "Selection between a true and false.",
+      "SelectedIndex": 0
+    },
+    {
+      "Id": "6cd5e977b2ae4511b202bc7c53fe0e4a",
+      "Name": "Suffix",
+      "Type": "string",
+      "Type2": "string",
+      "Value": "2",
+      "Description": "Creates a string.",
       "SelectedIndex": 0
     }
   ],
@@ -176,12 +185,12 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
       "NodeType": "CodeBlockNode",
-      "Code": "2;",
+      "Code": "1;",
       "Id": "5922c8881d0c4736a87f339d1a6bd1b6",
       "Inputs": [],
       "Outputs": [
         {
-          "Id": "bb307514114a42ca806c4e206d181820",
+          "Id": "409b58c3ecc24a9892b0aeefb3243c8a",
           "Name": "",
           "Description": "Value of expression at line 1",
           "UsingDefaultValue": false,
@@ -234,9 +243,9 @@
       "IsHidden": "False"
     },
     {
-      "Start": "bb307514114a42ca806c4e206d181820",
+      "Start": "409b58c3ecc24a9892b0aeefb3243c8a",
       "End": "a56f69b95a1d476ea502f5ca1041001f",
-      "Id": "d9ed50a0904d435a8467f997d26fcda0",
+      "Id": "7f02fe28dd2244029121f7957ecb5cad",
       "IsHidden": "False"
     },
     {
@@ -358,7 +367,7 @@
         "Name": "Suffix",
         "ShowGeometry": true,
         "Id": "6cd5e977b2ae4511b202bc7c53fe0e4a",
-        "IsSetAsInput": false,
+        "IsSetAsInput": true,
         "IsSetAsOutput": false,
         "Excluded": false,
         "X": 401.40537452469215,
@@ -366,8 +375,8 @@
       }
     ],
     "Annotations": [],
-    "X": -27.984884850479204,
-    "Y": 71.078928031472515,
-    "Zoom": 0.86359469383692056
+    "X": 113.94846519170113,
+    "Y": -180.36598464839642,
+    "Zoom": 0.960726897357084
   }
 }
