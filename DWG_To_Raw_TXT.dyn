@@ -1,0 +1,952 @@
+{
+  "Uuid": "51dc85aa-5a0a-467a-9d84-f160e1270772",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "DWG_To_Raw_TXT",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [
+    {
+      "Id": "2e7c785cb7754fcf85252b24e44c2785",
+      "Name": "Drafting View Name",
+      "Type": "string",
+      "Type2": "string",
+      "Value": "drafting_view_all_txt_2",
+      "Description": "Creates a string.",
+      "SelectedIndex": 0
+    },
+    {
+      "Id": "163d54c9a2b84873af1069f86d0ee84f",
+      "Name": "File Path",
+      "Type": "string",
+      "Type2": "string",
+      "Value": "..\\..\\..\\Downloads\\General CD Notes.dwg",
+      "Description": "Allows you to select a file on the system to get its file path.",
+      "SelectedIndex": 0
+    },
+    {
+      "Id": "a6b86307d0ec40faa7a21e0b0f956492",
+      "Name": "String",
+      "Type": "string",
+      "Type2": "string",
+      "Value": "text_notes_1",
+      "Description": "Creates a string.",
+      "SelectedIndex": 0
+    },
+    {
+      "Id": "6e6fb4ce14e644889dfe53690a41cfa6",
+      "Name": "Directory Path",
+      "Type": "string",
+      "Type2": "string",
+      "Value": "C:\\Users\\peter\\Downloads",
+      "Description": "Allows you to select a directory on the system to get its path",
+      "SelectedIndex": 0
+    }
+  ],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "drafting_view_all_txt_2",
+      "Id": "2e7c785cb7754fcf85252b24e44c2785",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "e978a2c1fd37491a903ad5285df801f0",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "f4720f2a-ce11-4175-90b5-36127498a2ce",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "b43d7ca2f07e4ba4aac6a5dd6c27923d",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "cda79626f6bf4e19a946266a73715bf9",
+          "Name": "Colormode",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e3353971e8ec4d208582f061669f614b",
+          "Name": "Placement",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "01f76fbc1cc6414aac46703b7a18d4f1",
+          "Name": "Unit",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Enumerate Color mode, Type of Placement and Type of Unit.\r\nWorks with the \"Link DWG\" and \"Import DWG\" nodes."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "x[2];",
+      "Id": "86592e4e57fd4ac2b4b9d146fa6df4fb",
+      "Inputs": [
+        {
+          "Id": "47baa161cf6d465c915caa7b0c81c10f",
+          "Name": "x",
+          "Description": "x",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "24d009fd84bf4a5e8a0304529c70695c",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "x[1];",
+      "Id": "9e8d469e8ef64792ae9d0902ca36c712",
+      "Inputs": [
+        {
+          "Id": "d0efcb487e08434c9af021eb213a67ce",
+          "Name": "x",
+          "Description": "x",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a69cc8de5b8541c8b79e77bffe50c4ff",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "x[0];",
+      "Id": "4a7f2654710d4950b91120631ad346f9",
+      "Inputs": [
+        {
+          "Id": "ffb17ce6d4f647e68ce41f89ef9a4f50",
+          "Name": "x",
+          "Description": "x",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3b4d0fd799894b719049a6b67d9c59ed",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Views.DraftingView.ByName@string",
+      "Id": "81dbe66248c643688ea4a1fa27f4bc99",
+      "Inputs": [
+        {
+          "Id": "5da8ed5f016e438ebf76f8b4f50758e9",
+          "Name": "name",
+          "Description": "Name of the view\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "de737cdab0d2460aa4fa26f08cc127ee",
+          "Name": "DraftingView",
+          "Description": "The view",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Revit DraftingView given it's name\n\nDraftingView.ByName (name: string): DraftingView"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "c32ac83b-a3f9-4e58-a26d-2ac2ca88a674",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "0c28f341b00747c3979f4976e88da04e",
+      "Inputs": [
+        {
+          "Id": "1fc4afcd9cad4879a6ed326e3f07009f",
+          "Name": "Filepaths",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f08f2f054795486a9c00a5eb6ab8b23d",
+          "Name": "views",
+          "Description": "As many Views as FilePaths\n\nvar[]..[]\nDefault value : Revit.Application.Document.Current.ActiveView",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "35fce98ca7444ea39af7342c5120e2ff",
+          "Name": "CustomScale",
+          "Description": "Warning : If this is defined, it takes preference over units\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "dff1e9b0b0fb4cfba3190074c3740ec8",
+          "Name": "Colormode",
+          "Description": "var[]..[]\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6a6fad3455b24caab7b08efa6b962b9e",
+          "Name": "Placement",
+          "Description": "var[]..[]\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2dc5468064484a33b6030e287eda693a",
+          "Name": "unit",
+          "Description": "var[]..[]\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "aad660a092394252ad62ee307eafe6c2",
+          "Name": "AllView",
+          "Description": "DWG visible in all views ?\nOption not available in 3D views\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "39f1f1190f044393af6b0e182e6bb693",
+          "Name": "DrawLayer",
+          "Description": "Draw layer : Foreground (0) or Background (1)\n\nint\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "cb11beb8b0604bfba2b4d80406cc0605",
+          "Name": "Views",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "06a0ce7a684646808731d8a79003d8f2",
+          "Name": "Name",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "950978fad4174813b2c6af3ac7677fba",
+          "Name": "CADLinkType",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2163ffcf625b48628cd554bcf2be5741",
+          "Name": "ImportInstance",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Link DWGs in views with options.\r\nUse with the Enumerate DWG import options node.\r\nBased on a archilab's script."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.Filename, CoreNodeModels",
+      "HintPath": "C:\\Users\\peter\\Downloads\\General CD Notes.dwg",
+      "InputValue": "..\\..\\..\\Downloads\\General CD Notes.dwg",
+      "NodeType": "ExtensionNode",
+      "Id": "163d54c9a2b84873af1069f86d0ee84f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9f3226d3731f40d2a66995dd3c5f5ff7",
+          "Name": "",
+          "Description": "File Path",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows you to select a file on the system to get its file path."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "CADTextData.FromLayers@Revit.Elements.ImportInstance,string[]",
+      "Id": "f6d695688e2b44c4aebb4422ee83906a",
+      "Inputs": [
+        {
+          "Id": "c423760561954b8b9846eeeae0e4d3e5",
+          "Name": "importInstance",
+          "Description": "Input the ImportInstance to convert to curves.\n\nImportInstance",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1020923ecf96490e8d21ea325f51cd19",
+          "Name": "layerNames",
+          "Description": "Input the layer names to filter and convert text elements. Leave unconnected to convert text on all layers. Names are case-sensitive.\n\nstring[]\nDefault value : []",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ac399f69ae88422c84d7796456bf7c3e",
+          "Name": "CADTextData[][]",
+          "Description": "CADTextData[][]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "807091fe083d44e69f869c750549a0dc",
+          "Name": "layerKeys[]",
+          "Description": "string[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Extract text from a CAD link or import by layer name. Works recursively to extract text from CAD blocks regardless of any nested depth. The node also avoids exploding the CAD instance, so it is not affected by Revits 10,000 element import limit! \r\rVisit bimorph.com/bimorph-nodes for support\n\nCADTextData.FromLayers (importInstance: ImportInstance, layerNames: string[] = []): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "CADTextData.TextValue",
+      "Id": "03e1d7270fb141aa995df6a55c4933e9",
+      "Inputs": [
+        {
+          "Id": "aea209481363494bb7d8278196270b93",
+          "Name": "cADTextData",
+          "Description": "CADTextData",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b6251d84b71447459fadca3565e8d53f",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The text value of this CADTextData object. \r\rVisit bimorph.com/bimorph-nodes for support\n\nCADTextData.TextValue: string"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "text_notes_1",
+      "Id": "a6b86307d0ec40faa7a21e0b0f956492",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "c860460af91a4a0eb5aa832bb6882e1b",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.Directory, CoreNodeModels",
+      "HintPath": "C:\\Users\\peter\\Downloads",
+      "InputValue": "C:\\Users\\peter\\Downloads",
+      "NodeType": "ExtensionNode",
+      "Id": "6e6fb4ce14e644889dfe53690a41cfa6",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "597bcade19894215baee3d0ccd24acd2",
+          "Name": "",
+          "Description": "Directory path",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows you to select a directory on the system to get its path"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "36f75099-2653-4739-8425-c1959fd18bcc",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "3df8a99061784226b3fb958b69b0662d",
+      "Inputs": [
+        {
+          "Id": "90854aae7f0b48e7b79ffb3d7c9f4c07",
+          "Name": "DirectoryPath",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4c268b7d2b5e4e659267addab3940196",
+          "Name": "Filenames",
+          "Description": "Filenames as list\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c75ee465e0794e90ab19ed753e08fcb1",
+          "Name": "FilePaths",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Add directory and .pdf extension to filenames.\r\nBe careful with forbidden characters in filenames  (* . \" / \\ : ;)\r\nFor use with the \"Remove Special Characters from String\" node."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "3ce9c25fff004b7bbb11a4ae73b85f6b",
+      "Inputs": [
+        {
+          "Id": "82513a9a93884247924585d95aa85265",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "edbb3ac34703486d9c4e27dea3f1cdb9",
+          "Name": "amount",
+          "Description": "Layers of list nesting to remove (-1 will remove all list nestings)\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9d58b23183ae4190b2ce12c70f2cada1",
+          "Name": "list",
+          "Description": "Flattened list by amount",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amount: int = -1): var[]..[]"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# Load the Python Standard and DesignScript Libraries\r\nimport sys\r\nimport clr\r\nclr.AddReference('ProtoGeometry')\r\nfrom Autodesk.DesignScript.Geometry import *\r\n\r\n# The inputs to this node will be stored as a list in the IN variables.\r\ntext_strings = list(IN[0])\r\nfilepath = IN[1]\r\n\r\n\r\nwith open(f'{filepath}.txt', 'w') as f:\r\n    for string in text_strings:\r\n        f.write(string + '\\n')\r\n\r\n# Place your code below this line\r\n\r\n\r\n# Assign your output to the OUT variable.\r\nOUT = text_strings",
+      "Engine": "CPython3",
+      "EngineName": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "b6330cfb6246426a910b16cf937851e8",
+      "Inputs": [
+        {
+          "Id": "fe198a28c1984f888586f0161b0e64f4",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6fcf72653db148b1a207abcbc4507b96",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a235e883899d40bdb61883f34f9fab20",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "e978a2c1fd37491a903ad5285df801f0",
+      "End": "5da8ed5f016e438ebf76f8b4f50758e9",
+      "Id": "8de0b974a3bd44faac2ace25d4088855",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "cda79626f6bf4e19a946266a73715bf9",
+      "End": "47baa161cf6d465c915caa7b0c81c10f",
+      "Id": "e70e3cff69a3499caab1bcb6b1671b11",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "e3353971e8ec4d208582f061669f614b",
+      "End": "d0efcb487e08434c9af021eb213a67ce",
+      "Id": "c606da7223a54d43b302e540120abdb6",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "01f76fbc1cc6414aac46703b7a18d4f1",
+      "End": "ffb17ce6d4f647e68ce41f89ef9a4f50",
+      "Id": "b8911fb300994772b571d3082ebbc82e",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "24d009fd84bf4a5e8a0304529c70695c",
+      "End": "dff1e9b0b0fb4cfba3190074c3740ec8",
+      "Id": "46156d78bdf64da6b66c86b794ffe47c",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "a69cc8de5b8541c8b79e77bffe50c4ff",
+      "End": "6a6fad3455b24caab7b08efa6b962b9e",
+      "Id": "84bbcc88c5ca4f33ac65829feaae6c28",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3b4d0fd799894b719049a6b67d9c59ed",
+      "End": "2dc5468064484a33b6030e287eda693a",
+      "Id": "75dbfccfca1044c6a4c9daf56f2d6dc3",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "de737cdab0d2460aa4fa26f08cc127ee",
+      "End": "f08f2f054795486a9c00a5eb6ab8b23d",
+      "Id": "2dc774553923431e95ed08a86b66d7a1",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "2163ffcf625b48628cd554bcf2be5741",
+      "End": "c423760561954b8b9846eeeae0e4d3e5",
+      "Id": "6470379b30554fc18a9f04e15986b8fd",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9f3226d3731f40d2a66995dd3c5f5ff7",
+      "End": "1fc4afcd9cad4879a6ed326e3f07009f",
+      "Id": "bd2986c2debd4cc4ab51eb8e043bae16",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "ac399f69ae88422c84d7796456bf7c3e",
+      "End": "aea209481363494bb7d8278196270b93",
+      "Id": "b0dd47d60e3548f5baa406c56cd8aa22",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "b6251d84b71447459fadca3565e8d53f",
+      "End": "82513a9a93884247924585d95aa85265",
+      "Id": "2426982644204747996cfe9d51f4a8f6",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "c860460af91a4a0eb5aa832bb6882e1b",
+      "End": "4c268b7d2b5e4e659267addab3940196",
+      "Id": "5de86323501748b3902ec4264d0f1e0a",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "597bcade19894215baee3d0ccd24acd2",
+      "End": "90854aae7f0b48e7b79ffb3d7c9f4c07",
+      "Id": "def04ad8251745b29406d53b483b80a4",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "c75ee465e0794e90ab19ed753e08fcb1",
+      "End": "6fcf72653db148b1a207abcbc4507b96",
+      "Id": "71567eafd08e4d7f90002570e49051bb",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9d58b23183ae4190b2ce12c70f2cada1",
+      "End": "fe198a28c1984f888586f0161b0e64f4",
+      "Id": "e097e2b632ff40eaba729a0bc2b28b28",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [
+    "f4720f2a-ce11-4175-90b5-36127498a2ce",
+    "c32ac83b-a3f9-4e58-a26d-2ac2ca88a674",
+    "36f75099-2653-4739-8425-c1959fd18bcc"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "Genius Loci",
+      "Version": "2022.9.16",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "b43d7ca2f07e4ba4aac6a5dd6c27923d",
+        "0c28f341b00747c3979f4976e88da04e",
+        "3df8a99061784226b3fb958b69b0662d"
+      ]
+    },
+    {
+      "Name": "bimorphNodes",
+      "Version": "4.2.4",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "f6d695688e2b44c4aebb4422ee83906a",
+        "03e1d7270fb141aa995df6a55c4933e9"
+      ]
+    },
+    {
+      "Name": "General CD Notes.dwg",
+      "ReferenceType": "External",
+      "Nodes": [
+        "163d54c9a2b84873af1069f86d0ee84f"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [
+    {
+      "NodeId": "81dbe662-48c6-4368-8ea4-a1fa27f4bc99",
+      "Binding": {
+        "ByName_InClassDecl-1_InFunctionScope-1_Instance0_81dbe662-48c6-4368-8ea4-a1fa27f4bc99": "PFNPQVAtRU5WOkVudmVsb3BlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOlNPQVAtRU5DPSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy9zb2FwL2VuY29kaW5nLyIgeG1sbnM6U09BUC1FTlY9Imh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3NvYXAvZW52ZWxvcGUvIiB4bWxuczpjbHI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vc29hcC9lbmNvZGluZy9jbHIvMS4wIiBTT0FQLUVOVjplbmNvZGluZ1N0eWxlPSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy9zb2FwL2VuY29kaW5nLyI+DQo8U09BUC1FTlY6Qm9keT4NCjxhMTpDYWxsU2l0ZV94MDAyQl9UcmFjZVNlcmlhbGlzZXJIZWxwZXIgaWQ9InJlZi0xIiB4bWxuczphMT0iaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9jbHIvbnNhc3NlbS9Qcm90b0NvcmUvUHJvdG9Db3JlJTJDJTIwVmVyc2lvbiUzRDIuMTYuMS4yNzI3JTJDJTIwQ3VsdHVyZSUzRG5ldXRyYWwlMkMlMjBQdWJsaWNLZXlUb2tlbiUzRG51bGwiPg0KPE51bWJlck9mRWxlbWVudHM+MTwvTnVtYmVyT2ZFbGVtZW50cz4NCjxCYXNlLTBfSGFzRGF0YT50cnVlPC9CYXNlLTBfSGFzRGF0YT4NCjxCYXNlLTBfRGF0YSBpZD0icmVmLTMiPlBGTlBRVkF0UlU1V09rVnVkbVZzYjNCbElIaHRiRzV6T25oemFUMGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TVM5WVRVeFRZMmhsYldFdGFXNXpkR0Z1WTJVaUlIaHRiRzV6T25oelpEMGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TVM5WVRVeFRZMmhsYldFaUlIaHRiRzV6T2xOUFFWQXRSVTVEUFNKb2RIUndPaTh2YzJOb1pXMWhjeTU0Yld4emIyRndMbTl5Wnk5emIyRndMMlZ1WTI5a2FXNW5MeUlnZUcxc2JuTTZVMDlCVUMxRlRsWTlJbWgwZEhBNkx5OXpZMmhsYldGekxuaHRiSE52WVhBdWIzSm5MM052WVhBdlpXNTJaV3h2Y0dVdklpQjRiV3h1Y3pwamJISTlJbWgwZEhBNkx5OXpZMmhsYldGekxtMXBZM0p2YzI5bWRDNWpiMjB2YzI5aGNDOWxibU52WkdsdVp5OWpiSEl2TVM0d0lpQlRUMEZRTFVWT1ZqcGxibU52WkdsdVoxTjBlV3hsUFNKb2RIUndPaTh2YzJOb1pXMWhjeTU0Yld4emIyRndMbTl5Wnk5emIyRndMMlZ1WTI5a2FXNW5MeUkrRFFvOFUwOUJVQzFGVGxZNlFtOWtlVDROQ2p4aE1UcFRaWEpwWVd4cGVtRmliR1ZKWkNCcFpEMGljbVZtTFRFaUlIaHRiRzV6T21FeFBTSm9kSFJ3T2k4dmMyTm9aVzFoY3k1dGFXTnliM052Wm5RdVkyOXRMMk5zY2k5dWMyRnpjMlZ0TDFKbGRtbDBVMlZ5ZG1salpYTXVVR1Z5YzJsemRHVnVZMlV2VW1WMmFYUlRaWEoyYVdObGN5VXlReVV5TUZabGNuTnBiMjRsTTBReUxqRTJMakV1TmpVeE1DVXlReVV5TUVOMWJIUjFjbVVsTTBSdVpYVjBjbUZzSlRKREpUSXdVSFZpYkdsalMyVjVWRzlyWlc0bE0wUnVkV3hzSWo0TkNqeHpkSEpwYm1kSlJDQnBaRDBpY21WbUxUTWlQamhsWkROak5EYzBMVE5oWVRBdE5ESXhaUzFpWWpSa0xUaGlNek0yT0RkaE1EaG1OeTB3TURBMVlUY3pNRHd2YzNSeWFXNW5TVVErRFFvOGFXNTBTVVErTXpjd05EZ3dQQzlwYm5SSlJENE5Dand2WVRFNlUyVnlhV0ZzYVhwaFlteGxTV1ErRFFvOEwxTlBRVkF0UlU1V09rSnZaSGsrRFFvOEwxTlBRVkF0UlU1V09rVnVkbVZzYjNCbFBnMEs8L0Jhc2UtMF9EYXRhPg0KPEJhc2UtMF9IYXNOZXN0ZWREYXRhPmZhbHNlPC9CYXNlLTBfSGFzTmVzdGVkRGF0YT4NCjwvYTE6Q2FsbFNpdGVfeDAwMkJfVHJhY2VTZXJpYWxpc2VySGVscGVyPg0KPC9TT0FQLUVOVjpCb2R5Pg0KPC9TT0FQLUVOVjpFbnZlbG9wZT4NCg=="
+      }
+    }
+  ],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -66.974205017089844,
+      "EyeY": 100.77513885498047,
+      "EyeZ": 45.414527893066406,
+      "LookX": 76.2303237915039,
+      "LookY": -94.251480102539063,
+      "LookZ": -49.461612701416016,
+      "UpX": 0.46504509449005127,
+      "UpY": 0.83227699995040894,
+      "UpZ": -0.30174174904823303
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Drafting View Name",
+        "ShowGeometry": true,
+        "Id": "2e7c785cb7754fcf85252b24e44c2785",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 451.97824870369146,
+        "Y": -152.42861484973588
+      },
+      {
+        "Name": "Enumerate DWG import options",
+        "ShowGeometry": true,
+        "Id": "b43d7ca2f07e4ba4aac6a5dd6c27923d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 738.016469725954,
+        "Y": 414.49771196088159
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "86592e4e57fd4ac2b4b9d146fa6df4fb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1141.0697866107341,
+        "Y": 230.59505921872153
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "9e8d469e8ef64792ae9d0902ca36c712",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1139.7862406796082,
+        "Y": 388.39849455641195
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "4a7f2654710d4950b91120631ad346f9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1217.2930075171241,
+        "Y": 568.72036026002058
+      },
+      {
+        "Name": "DraftingView.ByName",
+        "ShowGeometry": true,
+        "Id": "81dbe66248c643688ea4a1fa27f4bc99",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 838.33471466745084,
+        "Y": -200.22782044021824
+      },
+      {
+        "Name": "Link DWG",
+        "ShowGeometry": true,
+        "Id": "0c28f341b00747c3979f4976e88da04e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1459.220029430435,
+        "Y": -204.69182255508656
+      },
+      {
+        "Name": "File Path",
+        "ShowGeometry": true,
+        "Id": "163d54c9a2b84873af1069f86d0ee84f",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 971.75279799802433,
+        "Y": -377.86629567954992
+      },
+      {
+        "Name": "CADTextData.FromLayers",
+        "ShowGeometry": true,
+        "Id": "f6d695688e2b44c4aebb4422ee83906a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1831.8885898992346,
+        "Y": -148.5260620846276
+      },
+      {
+        "Name": "CADTextData.TextValue",
+        "ShowGeometry": true,
+        "Id": "03e1d7270fb141aa995df6a55c4933e9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2278.1402300072423,
+        "Y": -200.7960654230256
+      },
+      {
+        "Name": "String",
+        "ShowGeometry": true,
+        "Id": "a6b86307d0ec40faa7a21e0b0f956492",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2330.0785917244029,
+        "Y": -332.86844914002336
+      },
+      {
+        "Name": "Directory Path",
+        "ShowGeometry": true,
+        "Id": "6e6fb4ce14e644889dfe53690a41cfa6",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2196.584846189,
+        "Y": -589.8820039417742
+      },
+      {
+        "Name": "FilenameToFilePaths",
+        "ShowGeometry": true,
+        "Id": "3df8a99061784226b3fb958b69b0662d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2537.6154710420092,
+        "Y": -474.69750891637148
+      },
+      {
+        "Name": "List.Flatten",
+        "ShowGeometry": true,
+        "Id": "3ce9c25fff004b7bbb11a4ae73b85f6b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2624.9496405805908,
+        "Y": -72.7820960398368
+      },
+      {
+        "Name": "Python Script",
+        "ShowGeometry": true,
+        "Id": "b6330cfb6246426a910b16cf937851e8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3216.3035154917211,
+        "Y": -276.74831099085293
+      }
+    ],
+    "Annotations": [],
+    "X": -2498.5640910926058,
+    "Y": 768.56343355233491,
+    "Zoom": 1.1119067213200993
+  }
+}
